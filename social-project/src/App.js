@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
-import Home from './pages/Home.js';
+
+import { BrowserRouter } from 'react-router-dom';
+import { Route } from "react-router-dom";
+
+import AllIncidents from "./pages/AllIncidents/AllIncidents.js";
+import Home from './pages/Home/Home.js';
 
 class App extends Component {
 
@@ -10,11 +15,20 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Home />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Route 
+            path="/" 
+            exact 
+            render={() => <Home /> } />
+          <Route 
+            path="/all-incidents" 
+            exact 
+            render={() => <AllIncidents /> } />
+        </div>
+      </BrowserRouter>
     );
   }
-}
+};
 
 export default App;

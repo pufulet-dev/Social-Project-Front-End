@@ -1,0 +1,68 @@
+.cardWrapper {
+    padding: 12px;
+    width: 25%;
+    margin: 25px;
+    margin-top: 6px;
+    margin-bottom: 22px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.cardImage {
+    width: 250px;
+    height: auto;
+}
+
+.cardTitle {
+    font-weight: bold;
+    margin: 5px;
+}
+
+.viewButton {
+    border: 1px solid #2f55d4;
+    font-size: 20px;
+    width: 98%;
+    border-radius: 8px;
+    margin-top: 9px;
+    background-color: #eee;
+}
+
+.viewButton:hover {
+    color:  #2f55d4;
+}
+
+/* location section */
+
+.cardLocation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -16px;
+    font-size: 14px;
+}
+
+.locationIcon {
+    width: 20px;
+    height: auto;
+}
+
+/* description section */
+
+.cardDescription {
+    text-align: left;
+    margin-left: 2%;
+    font-size: 14px;
+}
+
+.descriptionTitle {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.usersDescription {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 90%;
+    margin-top: -10px;
+}

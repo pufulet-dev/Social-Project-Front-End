@@ -1,0 +1,18 @@
+.allIncidentsTitle {
+    text-align: left;
+    margin-left: 10%;
+    margin-top: 40px;
+}
+
+.mostWatchedIncidents {
+    text-align: left;
+    margin-left: 10%;
+}
+
+.tableOfCards {
+    display: flex;
+    justify-content: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    flex-wrap: wrap;
+}
