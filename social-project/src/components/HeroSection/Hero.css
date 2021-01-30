@@ -1,0 +1,111 @@
+.header, .body {
+    width: 70%;
+    margin-left: 14%;
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+} 
+
+.body {
+    font-size: 15px;
+    margin-top: 30px;
+    margin-bottom: 200px; 
+}
+
+.header {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 35px;
+}
+
+.header1 {
+    padding-top: 50px;
+}
+
+.bottomImage {
+    position: absolute;
+    max-width: 100%;
+    bottom: 0px;
+    left: 0px; 
+}
+
+.allPage {
+    background-color: #f5f5f5;
+    display: flex;
+}
+
+.heroWrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 22%;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: auto;
+}
+
+.registerBox {
+    width: 700px;
+    height: 45%;
+    position: relative;
+    margin: 1%;
+    background: white;
+    margin-right: 9%;
+    margin-left: 3%;
+    border-radius: 29px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.welcome {
+    text-align: center;
+    font-size:larger;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.registerLabel {
+    text-align: left;
+    margin-left: 17%;
+    font-size: small;
+    margin-top: 5px;
+}
+
+.registerInput {
+    text-align: left;
+    width: 65%;
+    margin-bottom: 10px;
+}
+
+.termsAndConditions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    /* margin-left: 66px; */
+    margin-top: -27px;
+    text-align: left;
+    margin-left: 16%;
+    font-size: small;
+}
+
+.accept {
+    margin-left: 10px;
+    margin-right: 6px;
+}
+
+.registerButton {
+    background: #2f55d4;
+    margin: 6px;
+    min-height: 40px;
+    min-width: 80px;
+    border: none;
+    border-radius: 6px;
+    color: #eee;
+    font-size: 15px;
+    position: relative;
+    transition: 1s;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    padding-top: 3px;
+    width: 68%;
+}
