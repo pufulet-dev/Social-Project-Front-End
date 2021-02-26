@@ -1,3 +1,13 @@
+.heroWrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 22%;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: auto;
+}
+
 .header, .body {
     width: 70%;
     margin-left: 14%;
@@ -34,18 +44,8 @@
     display: flex;
 }
 
-.heroWrapper {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    top: 22%;
-    background-color: #f5f5f5;
-    width: 100%;
-    height: auto;
-}
-
 .registerBox {
-    width: 700px;
+    width: 666px;
     height: 45%;
     position: relative;
     margin: 1%;
@@ -59,9 +59,10 @@
 
 .welcome {
     text-align: center;
-    font-size:larger;
-    margin-bottom: 10px;
+    font-size: larger;
+    margin-bottom: 2px;
     margin-top: 0px;
+    font-size: 18px;
 }
 
 .registerLabel {
@@ -69,23 +70,28 @@
     margin-left: 17%;
     font-size: small;
     margin-top: 5px;
+    margin-bottom: 7px;
 }
 
 .registerInput {
     text-align: left;
     width: 65%;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
+    margin-top: 0px;
+    border: none;
+    border-bottom: 1px solid black;
 }
 
 .termsAndConditions {
     display: flex;
     justify-content: flex-start;
     align-items: baseline;
-    /* margin-left: 66px; */
     margin-top: -27px;
     text-align: left;
     margin-left: 16%;
     font-size: small;
+    margin-top: 7px;
+    margin-bottom: -6px;
 }
 
 .accept {
@@ -108,4 +114,31 @@
     cursor: pointer;
     padding-top: 3px;
     width: 68%;
+}
+
+.registerLabel:after {
+    content: " *";
+    color: red;
+    font-size: 14px;    
+}
+
+.registerInputPieceWrapper {
+    position: relative;
+    margin-top: 7px;
+}
+
+.registerInput {
+    color: black;
+    height: 30px;
+    padding-top: 14px;
+}
+
+.registerLabel {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 90%;
+    height: 90%;
+    pointer-events: none;
+    font-weight: 500;
 }

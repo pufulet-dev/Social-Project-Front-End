@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 
 import AllIncidents from "./pages/AllIncidents/AllIncidents.js";
 import Home from './pages/Home/Home.js';
+import SearchIncident from './pages/SearchIncident/SearchIncident.js';
 
 class App extends Component {
 
@@ -18,13 +19,17 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Route 
-            path="/" 
-            exact 
+            exact
+            path="/"  
             render={() => <Home /> } />
           <Route 
-            path="/all-incidents" 
             exact 
+            path="/all-incidents" 
             render={() => <AllIncidents /> } />
+          <Route 
+            exact
+            path="/search-incident"
+            render={() => <SearchIncident /> } />
         </div>
       </BrowserRouter>
     );
