@@ -45,7 +45,9 @@ const Hero = (props) => {
                 <div className="termsAndConditions">
                     <input type="checkbox" />
                     <p className="accept">I Accept</p>
-                    <a href="https://dexonline.ro/" className="termsLink">Terms and Conditions</a>
+                    <a 
+                        href="https://www.termsfeed.com/blog/sample-terms-and-conditions-template/" 
+                        className="termsLink">Terms and Conditions</a>
                 </div>
                 <button className="registerButton">Register</button>
             </div>

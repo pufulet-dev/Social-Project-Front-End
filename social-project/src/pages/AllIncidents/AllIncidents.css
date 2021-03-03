@@ -1,18 +1,29 @@
 .allIncidentsTitle {
     text-align: left;
-    margin-left: 10%;
-    margin-top: 40px;
+    margin-left: 8.5%;
+    margin-top: 20px;
 }
 
 .mostWatchedIncidents {
     text-align: left;
-    margin-left: 10%;
+    margin-left: 8.5%;
 }
 
 .tableOfCards {
     display: flex;
     justify-content: center;
-    margin-left: 5%;
+    margin-left: 4%;
     margin-right: 5%;
     flex-wrap: wrap;
+}
+
+/* .searchAnIncident {
+    color: black;
+} */
+
+@media only screen and (max-width: 600px) {
+    .allIncidentsTitle, .mostWatchedIncidents {
+        margin-left: 0px;
+        text-align: center;
+    }
 }

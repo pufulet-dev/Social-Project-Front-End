@@ -2,7 +2,9 @@ import react, { Component } from 'react';
 import './SearchIncident.css';
 import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import peopleImage from './SearchIncidentPhoto.png';
-import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+// import { connect } from 'react-redux';
 
 class SearchIncident extends Component {
 
@@ -29,18 +31,55 @@ class SearchIncident extends Component {
                             <option> Location </option>
                             <option> Anenii Noi </option>
                             <option> Basarabeasca </option>
+                            <option> Bălți </option>
+                            <option> Bender </option>
                             <option> Briceni </option>
                             <option> Cahul </option>
                             <option> Cantemir </option>
                             <option> Călărași </option>
+                            <option> Căușeni </option>
+                            <option> Ceadîr-Lunga </option>
                             <option> Chișinău </option>
+                            <option> Cimișlia </option>
+                            <option> Comrat </option> 
+                            <option> Criuleni </option>
+                            <option> Dondușeni </option>
+                            <option> Drochia </option>
+                            <option> Dubăsari </option>
+                            <option> Edineț </option>
+                            <option> Fălești </option>
+                            <option> Florești </option>
+                            <option> Glodeni </option>
+                            <option> Hîncești </option>
+                            <option> Ialoveni </option>
+                            <option> Leova </option>
+                            <option> Nisporeni </option>
+                            <option> Ocnița </option>
+                            <option> Orhei </option>
+                            <option> Rezina </option>
+                            <option> Rîșcani </option>
+                            <option> Sîngerei </option>
+                            <option> Soroca </option>
+                            <option> Strășeni </option>
+                            <option> Șoldănești </option>
+                            <option> Ștefan Vodă </option>
+                            <option> Taraclia </option>
+                            <option> Telenești </option>
+                            <option> Tiraspol </option>
+                            <option> Ungheni </option>
+                            <option> U.T.A.G. </option>
+                            <option> U.T.A.N. </option>
                         </select>
                         <select>
                             <option> Category </option>
                             <option> Alimentation </option>
                             <option> Comunication </option>
                         </select>
-                        <button className="searchButton" > Search </button>
+                        <button className="searchButton" > 
+                            <a href="/all-incidents">
+                                Search
+                            </a>
+                        </button>
                     </span>
                     <p className="quoteAndAuthor">
                             <span className="quote"> Lasting solution to many social problems will be found only as we each learn to say, 'I am society'. </span>
@@ -53,18 +92,4 @@ class SearchIncident extends Component {
     }
 };
 
-const mapStateToProps = state => {
-    return {
-        counter: state.counter, 
-        toggleLogInRegister: state.toggleLogInRegister,
-        path: state.path,       
-    };
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        // toggle: () => dispatch({type:"TOGGLE"})
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchIncident);
+export default withRouter(SearchIncident);

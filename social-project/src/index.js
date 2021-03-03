@@ -9,12 +9,22 @@ import reportWebVitals from './reportWebVitals';
 
 import reducer from './store/reducer.js';
 
+import { BrowserRouter } from 'react-router-dom';
+
 const store = createStore(reducer);
+
+const app = (
+  <Provider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
+);
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store} >
-    <App />
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

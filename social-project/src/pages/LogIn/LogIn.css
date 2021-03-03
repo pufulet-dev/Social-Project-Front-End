@@ -1,0 +1,75 @@
+.logInWrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 22%;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: auto;
+}
+
+.logInBox {
+    width: 30%;
+    margin-left: 10%;
+    margin-top: 7%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.logInImage {
+    width: 40%;
+    margin-left: 13%;
+}
+
+.logInRemember {
+    display: flex;
+    justify-content: space-between;
+    font-size: small;
+}
+
+.allRemember {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.forgotPassword {
+    font-size: 10px;
+    margin-right: 20%;
+}
+
+.logInQuestion {
+    display: flex;
+    align-items: center;
+    margin-left: 29%;
+    margin-bottom: -13px;
+}
+
+.noAccount {
+    font-size: 10px;
+}
+
+.signUp {
+    font-weight: bold;
+    font-size: 11px;
+    margin-left: 3px;
+}
+
+@media screen and (max-width: 600px) {
+    .logInWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .logInImage {
+        width: 80%;
+        margin: auto;
+    }
+
+    .logInBox {
+        width: 70%;
+        margin: auto;
+        margin-bottom: 50px;
+    }
+}

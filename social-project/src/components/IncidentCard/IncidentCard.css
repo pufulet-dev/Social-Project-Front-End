@@ -1,14 +1,16 @@
 .cardWrapper {
     padding: 12px;
+    padding-top: 35px;
+    padding-bottom: 30px;
     width: 25%;
     margin: 25px;
-    margin-top: 6px;
-    margin-bottom: 22px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 }
 
 .cardImage {
-    width: 250px;
+    width: 85%;
     height: auto;
 }
 
@@ -20,7 +22,7 @@
 .viewButton {
     border: 1px solid #2f55d4;
     font-size: 20px;
-    width: 98%;
+    width: 86.5%;
     border-radius: 8px;
     margin-top: 9px;
     background-color: #eee;
@@ -50,13 +52,14 @@
 
 .cardDescription {
     text-align: left;
-    margin-left: 2%;
+    margin-left: 6%;
     font-size: 14px;
 }
 
 .descriptionTitle {
     font-size: 14px;
     font-weight: 500;
+    /* margin-left: 6%; */
 }
 
 .usersDescription {
@@ -66,4 +69,11 @@
     white-space: nowrap;
     width: 90%;
     margin-top: -10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .cardWrapper {
+        width: 70%;
+        margin-bottom: 20px;
+    }    
 }

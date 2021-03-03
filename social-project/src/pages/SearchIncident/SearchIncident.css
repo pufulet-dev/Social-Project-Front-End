@@ -1,5 +1,6 @@
 .searchIncidentWrapper {
     background-color: #f8f9f9; 
+    height: 100%;
 }
 
 .peopleImage {
@@ -23,12 +24,12 @@
     padding-bottom: 3px;
 }
 
-.searchText {
-    margin-left: 15px;
-}
-
 .incident {
     color: rgb(30, 30, 199);
+}
+
+.reportedByInput {
+    font-size: 17px;
 }
 
 .addIncident {
@@ -37,8 +38,9 @@
 }
 
 .searchText {
-    padding-bottom: 25px;
+    margin-top: 6px;
     color: gray;
+    margin-left: 15px;
 }
 
 .filtersWrapper {
@@ -52,6 +54,7 @@
 
 .filtersWrapper select, .filtersWrapper button {
     margin-left: 30px !important;
+    font-size: 17px;
 }
 
 .searchButton {
@@ -70,9 +73,29 @@
     padding-top: 3px;
 }
 
+.searchButton a {
+    color: #eee;
+    text-decoration: none;
+}
+
 .quoteAndAuthor {
-    padding-bottom: 225px;
+    padding-bottom: 266px;
     margin-bottom: 0px;
     padding-top: 10px;
     color: #3a3232;
+}
+
+@media screen and (max-width: 600px) {
+    .peopleImage {
+        position: relative;
+        bottom: 0px;
+        left: 0px; 
+        width: 80%;
+        margin: auto;
+        object-fit: cover;
+    }
+
+    .quoteAndAuthor {
+        padding-bottom: 20px;
+    }
 }

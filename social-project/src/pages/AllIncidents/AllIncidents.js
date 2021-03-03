@@ -2,7 +2,8 @@ import React, {Component} from  'react';
 import './AllIncidents.css';
 import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import IncidentCard from "../../components/IncidentCard/IncidentCard";
-import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+// import { connect } from 'react-redux';
 
 class AllIncidents extends Component {
     state = {
@@ -67,22 +68,17 @@ class AllIncidents extends Component {
                 }
             </div>
         );
+
         return (
             <div className="allIncidentsWrapper">
                 <NavigationBar />
+                <a href="/search-incident" className="searchAnIncident">Search an incident!</a>
                 <h1 className="allIncidentsTitle">All Incidents</h1>
                 <p className="mostWatchedIncidents">Most watched incidents</p>
                 {cards}
-                <h1>this is a test: {this.props.ctr} </h1>
             </div>
         );
     }
 };
 
-const mapStateToProps = state => {
-    return {
-        ctr: state.counter,        
-    };
-}
-
-export default connect(mapStateToProps)(AllIncidents);
+export default withRouter(AllIncidents);
