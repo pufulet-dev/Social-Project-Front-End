@@ -1,0 +1,168 @@
+.incidentPageWrapper {
+    display: flex;
+    /* background-color: pink; */
+    margin-right: 9%;
+    margin-left: 8.5%;
+    margin-top: 5%;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.column1 {
+    width: 75%;
+    /* background-color: rgb(255, 199, 216); */
+}
+
+.column2 {
+    width: 25%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    /* border? */
+}
+
+.mainImage {
+    margin: 4%;
+    margin-bottom: 3%;
+    height: 400px;
+    width: 92%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* RIGHT BAR TITLES */
+
+.rightBarTitles {
+    font-size: 17px;
+    text-align: left;
+    font-weight: 500;
+}
+
+/* LABELS & DESCRIPTION */
+
+.labelsWrapper {
+    display: flex;
+    align-items: center;
+    margin: 0px 5%;
+    font-size: 14px;
+}
+
+.labelIcon {
+    width: 16px;
+    height: auto;
+    margin: 3px;
+    margin-right: 5px;
+}
+
+.incidentDescription {
+    font-size: 14px;
+    margin: 0px 5%;
+    text-align: left;
+}
+
+/* SEARCH SECTION */ 
+
+.searchSectionWrapper {
+    margin: 12%;
+    margin-bottom: 4%;
+}
+
+.searchBarWrapper {
+    display: flex;
+    border: 1px solid grey;
+    border-radius: 3px;
+    max-width: 100%;
+}
+
+.searchSectionWrapper input {
+    border: none;
+    width: 85%;
+}
+
+.searchSectionWrapper img {
+    height: auto;
+    width: 100%;
+}
+
+.searchSectionWrapper button {
+    background-image: url("https://www.thinkafrica.fi/wp-content/uploads/2019/04/search-icon.png");
+    height: auto;
+    width: 15%;
+    background-color: white;
+    border: none;
+}
+
+.searchSectionWrapper button:hover {
+    background-color: thistle;
+}
+
+/* INCIDENT DETAILS */
+
+.incidentDetailsWrapper {
+    margin: 11%;
+    margin-bottom: 4%;
+}
+
+.detailColumns {
+    display: flex;
+    font-size: 12px;
+}
+
+.detailName {
+    width: 36%;
+    text-align: left;
+}
+
+.details {
+    width: 64%;
+    text-align: right;
+}
+
+/* LIKES AND COMMENTS */
+
+.likesAndComments {
+    margin: 0px 5%;
+}
+
+.heart, .comment, .likesAndComments {
+    display: flex;
+    align-items: center;
+}
+
+.heartPic{
+    height: 32px;
+    width: auto;
+}
+
+.commentPic{
+    margin-left: 11px;
+    height: 23px;
+    width: auto;
+    margin-right: 3px;
+}
+
+.heart:hover {
+    color: rgb(233, 130, 130);
+    /* background-color: red; */
+}
+
+.heartPic:hover {
+    background-color: rgb(233, 130, 130);
+    border-radius: 16px;
+}
+
+.heartClicked {
+    background-color: rgb(233, 130, 130);
+    border-radius: 16px;
+    margin-right: 7px;
+}
+
+/* RECENT INCIDENTS */
+
+.recentIncidentsWrapper {
+    margin: 11%;
+    margin-bottom: 4%;
+}
+

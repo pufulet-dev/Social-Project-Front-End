@@ -1,0 +1,116 @@
+:root {
+    --wrapperBorders: 25%; 
+    --formPaddingRL: 6%;
+    --formPaddingUD: 4%;
+}
+
+.addIncidentWrapper {
+    margin-left: var(--wrapperBorders);
+    margin-right: var(--wrapperBorders);
+    margin-bottom: 20px;
+}
+
+.addIncidentForm {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 0.5px solid grey;
+    border-radius: 6px;
+    padding-left: var(--formPaddingRL);
+    padding-right: var(--formPaddingRL);
+    padding-top: var(--formPaddingUD);
+    padding-bottom: var(--formPaddingUD);
+}
+
+.addIncidentInputWrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex-basis: 40%;
+    align-items: left;
+    margin-left: 0px;
+    margin-top: 4px;
+}
+
+.addIncidentInputWrapper p {
+    margin-left: 0px;
+}
+
+.addIncidentOptionInput {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+    margin-top: 7px;
+}
+
+.addIncidentTitle {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.addIncidentInput {
+    width: 90%;
+}
+
+.addIncidentDescription {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    position: relative;
+}
+
+.addIncidentTextarea {
+    height: 90px;
+    padding-left: 30px;
+    padding-top: 3px;
+    font-size: 13px;
+}
+
+.addIncidentDescriptionTitle {
+    flex-basis: 100%;
+    margin-top: 20px;
+    margin-bottom: 7px;
+    margin-left: 0px;
+}   
+
+.descriptionIcon {
+    width: 20px;
+    height: auto;
+    position: absolute;
+    padding: 3px;
+}
+
+.uploadText {
+    flex-basis: 100%;
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.addIncidentUploading {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 12px;
+}
+
+.addIncidentUploading button {
+    height: 20px;
+    width: auto;
+    margin-right: 6px;
+}
+
+.addIncidentTermsAndConditions {
+    flex-basis: 100%;
+    margin-left: 0px;
+    margin-top: -5px;
+}
+
+.reportNow {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+}

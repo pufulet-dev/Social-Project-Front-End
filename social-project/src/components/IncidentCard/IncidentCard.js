@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import './IncidentCard.css';
 
 const IncidentCard = (props) => {
@@ -17,7 +17,7 @@ const IncidentCard = (props) => {
                 <p className="descriptionTitle" >Description:</p>
                 <span className="usersDescription"> {props.description} </span>
             </div>
-            <button className="viewButton">View Now</button>
+            <button onClick={props.callback} className="viewButton">View Now</button>
         </div>
     );
 };

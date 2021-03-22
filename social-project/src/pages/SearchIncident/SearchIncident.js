@@ -15,7 +15,10 @@ class SearchIncident extends Component {
                 <NavigationBar />
                 <div className="searchIncidentWrapper" >
                     <div className="addIncident" >
-                        <span className="start" >Start</span>
+                        {/* <span className="start" >Start</span> */}
+                        <a href="/add-incident" className="start">
+                            Start
+                        </a>
                         <span>Add</span>
                         <span>new</span>
                         <span className="incident" >incident</span>

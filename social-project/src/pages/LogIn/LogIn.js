@@ -36,15 +36,13 @@ const LogIn = (props) => {
                     <img src={LogInImage} className="logInImage" />
                     <div className="registerBox logInBox">
                         <p className="welcome" > Login </p> 
+                        <p className="registerLabel"> Username </p>
                         <div className="registerInputPieceWrapper" >
-                            <p className="registerLabel"> Username </p>
                             <input type="text" className="registerInput" />
-                            {/* placeholder="Email" */}
                         </div>
+                        <p className="registerLabel">Password</p>
                         <div className="registerInputPieceWrapper" >
-                            <p className="registerLabel">Password</p>
                             <input type="password" className="registerInput" />
-                            {/* placeholder="Identification Number" */}
                         </div>
                         <div className="termsAndConditions logInRemember">
                             <div className="allRemember">
