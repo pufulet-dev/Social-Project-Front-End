@@ -76,10 +76,10 @@
 }   
 
 .descriptionIcon {
-    width: 20px;
+    width: 15px;
     height: auto;
     position: absolute;
-    padding: 3px;
+    padding: 6px;
 }
 
 .uploadText {

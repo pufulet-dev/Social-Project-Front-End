@@ -1,0 +1,42 @@
+.relatedPostWrapper {
+    display: inline-block;
+    vertical-align: text-top;
+    width: 40%;
+    margin-right: 3%;
+    margin-left: 3%;
+    padding: 10px;
+    border: 1px solid rgb(216, 216, 216);
+    /* border: 1px solid rgb(196, 191, 191); */
+    /* border-radius: 6px; */
+}
+
+.relatedPostImage {
+    width: 89%;
+}
+
+.relatedPostName {
+    font-size: 17px;
+    text-align: left;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-left: 5%;
+    margin-bottom: 0px;
+}
+
+.readMoreWrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.readMoreIcon {
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+}
+
+.readMoreText {
+    font-size: 14px;
+    color: rgb(87, 85, 85);
+}

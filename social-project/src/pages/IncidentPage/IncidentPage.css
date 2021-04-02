@@ -1,17 +1,43 @@
 .incidentPageWrapper {
     display: flex;
-    /* background-color: pink; */
     margin-right: 9%;
     margin-left: 8.5%;
-    margin-top: 5%;
+    margin-top: 3%;
+    margin-bottom: 100px;
+    padding: 20px;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 6px;
-    padding: 20px;
 }
+
+/* INCIDENTS NAME */
+
+.nameOfIncident {
+    font-size: 40px;
+    width: 100%;
+    margin-top: 8%;
+}
+
+.aboutIncidentsAuthor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: grey;
+    margin-bottom: 0px;
+    /* background-color: pink; */
+}
+
+.icon1, .icon2 {
+    width: 15px;
+    margin-right: 7px;
+    margin-left: 10px;
+}
+
+/* */
 
 .column1 {
     width: 75%;
-    /* background-color: rgb(255, 199, 216); */
+    margin-bottom: 40px;
 }
 
 .column2 {
@@ -20,7 +46,7 @@
     position: sticky;
     top: 0;
     align-self: flex-start;
-    /* border? */
+    margin-bottom: 50px;
 }
 
 .mainImage {
@@ -60,6 +86,64 @@
     font-size: 14px;
     margin: 0px 5%;
     text-align: left;
+}
+
+/* ADD COMMENT */
+
+.yourComment {
+    margin-left: 5%;
+    margin-top: -5px;
+}
+
+.addCommentField {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 12px;
+    border: 1px solid rgb(196, 191, 191);
+    border-radius: 6px;
+}
+
+.addCommentIcon {
+    margin-left: 5%;
+    margin-top: 12px;
+}
+
+.commenterInfo {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.commenterInfo input {
+    width: 100%;
+}
+
+.commenterInfo p {
+    margin-right: 100px;
+}
+
+.infoLabels {
+    margin-left: 0;
+}
+
+.sendMessageButton {
+    margin-left: 5%;
+    margin-right: 5%;
+    /* margin-bottom: 0px; */
+    margin-top: 20px;
+    background: #2f55d4;
+    min-height: 40px;
+    min-width: 80px;
+    border: none;
+    border-radius: 6px;
+    color: #eee;
+    font-size: 15px;
+    transition: 1s;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    padding-top: 3px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px;
+    width: 90%;
 }
 
 /* SEARCH SECTION */ 
@@ -159,6 +243,24 @@
     margin-right: 7px;
 }
 
+/* COMMENTS */
+
+.commentTitle {
+    font-size: 17px;
+    text-align: left;
+    font-weight: 500;
+    margin: 2px 5%;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+/* RELATED POSTS */
+
+.relatedPostsWrapper {
+    margin: 0 5%;
+    /* background-color: red; */
+}
+
 /* RECENT INCIDENTS */
 
 .recentIncidentsWrapper {
@@ -166,3 +268,23 @@
     margin-bottom: 4%;
 }
 
+/* TAGS */
+
+.tagsWrapper {
+    margin: 11%;
+    /* margin-bottom: 50px; */
+}
+
+.tagCard {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 3px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    font-size: 10px;
+}
+
+.tagCard:hover {
+    background-color: rgb(233, 233, 233);
+}

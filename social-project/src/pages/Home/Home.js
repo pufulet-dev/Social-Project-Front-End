@@ -36,8 +36,8 @@ class Home extends Component {
             headers: { 
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'mode': 'opaque'
-                // 'mode': 'no-cors'
+                // 'mode': 'opaque'
+                'mode': 'no-cors'
             },
             body: JSON.stringify({ 
                 idnp: this.state.idnp, 
@@ -47,7 +47,7 @@ class Home extends Component {
         };
         const response = await fetch('http://localhost:8080/app-api/common/regist', requestOptions);
         const data = await response.json();
-        this.setState({registStatus: data.token});
+        this.setState({registStatus: data});
         console.log(data);
         // http://localhost:8080/app-api/common/regist
     };

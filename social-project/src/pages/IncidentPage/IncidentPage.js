@@ -1,21 +1,78 @@
 import React, {Component} from 'react';
 import './IncidentPage.css';
 import NavigationBar from '../../components/NavigationBar/NavigationBar';
+import CommentBox from "../../components/CommentBox/CommentBox.js";
+import RecentIncidentCard from "../../components/RecentIncidentCard/RecentIncidentCard.js";
+import RelatedPostCard from '../../components/RelatedPostCard/RelatedPostCard.js';
 import LabelIcon from './LabelIcon.png';
+import RelatedPost from '../../components/RelatedPostCard/RelatedPostCard.js';
 
 class IncidentPage extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            listOfComments: [
+                {
+                    profilePic: "https://ps.w.org/wp-user-avatar/assets/icon-256x256.png?rev=1755722",
+                    authorsName: "Lorenzo Peterson",
+                    date: "15th August, 2019 at 01:25 pm",
+                    text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.",
+                
+                },
+                {
+                    profilePic: "https://ps.w.org/wp-user-avatar/assets/icon-256x256.png?rev=1755722",
+                    authorsName: "Tammy Camacho",
+                    date: "6th May, 2020 at 10:25 pm",
+                    text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.",
+                
+                },
+            ],
+            listOfRecentIncidents: [
+                {
+                    image: "https://pixnio.com/free-images/2019/02/07/2019-02-07-09-14-13-1200x900.jpg",
+                    title: "Something doesn't work",
+                    date: "13th March, 2019",
+                },
+                {
+                    image: "https://static.automarket.ro/img/db/article/044/501/155139l.jpg?ts=1336054667",
+                    title: "Problem",
+                    date: "26th October, 2020",
+                },
+                {
+                    image: "https://pixnio.com/free-images/2019/02/07/2019-02-07-09-14-13-1200x900.jpg",
+                    title: "Something doesn't work",
+                    date: "13th March, 2019",
+                },
+            ],    
+            listOfRelatedPosts: [
+                {
+                    image: "https://pixnio.com/free-images/2019/02/07/2019-02-07-09-14-13-1200x900.jpg",
+                    likes: "34",
+                    comments: "23",
+                    name: "Street Ilumination Work Stopped",
+                },
+                {
+                    image: "https://pixnio.com/free-images/2019/02/07/2019-02-07-09-14-13-1200x900.jpg",
+                    likes: "12",
+                    comments: "65",
+                    name: "Stolen Bulbs"
+                },
+            ], 
             mainImage: "https://pixnio.com/free-images/2019/02/07/2019-02-07-09-14-13-1200x900.jpg",
             incidentDescription: [
                 "The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. Lorem Ipsum is composed in a pseudo-Latin language which more or less corresponds to 'proper' Latin. It contains a series of real Latin words. This ancient dummy text is also incomprehensible, but it imitates the rhythm of most European languages in Latin script.", 
                 "The advantage of its Latin origin and the relative meaninglessness of Lorum Ipsum is that the text does not attract attention to itself or distract the viewer's attention from the layout.",
             ],
+            listOfTags: [
+                "INCIDENTS", "LPA", "STREET", "ILUMINATION", "BULBS", "BROKEN",
+                "BULBS", "LIGHTS", "ACTION", "RESPONSIBLE", "ACTIVIST"
+            ],
             nrOfLikes: "Confirm",
             nrOfComments: "63",
-            heartCSSclasses: "heartPic"
+            heartCSSclasses: "heartPic",
+            nameOfIncidentsAuthor: "Kevin Black",
+            dateOfIncidentAdd: "12th December, 2020",
         };
 
         this.handleHeartClick = this.handleHeartClick.bind(this);
@@ -37,9 +94,70 @@ class IncidentPage extends Component {
     }
 
     render() {
+
+        const comments = (
+            <div>
+                {
+                    this.state.listOfComments.map((comment, index) => {
+                        return <CommentBox 
+                            image={comment.profilePic}
+                            name={comment.authorsName}
+                            date={comment.date}
+                            key={comment.index}
+                            text={comment.text}
+                        />
+                    })
+                }
+            </div>
+        );
+
+        const recentIncidents = (
+            <div>
+                {
+                    this.state.listOfRecentIncidents.map((card, index) => {
+                        return <RecentIncidentCard 
+                            image={card.image}
+                            title={card.title}
+                            date={card.date}
+                            key={card.index}
+                        />
+                    })
+                }
+            </div>
+        );
+
+        const relatedPosts = (
+            <div>
+                {
+                    this.state.listOfRelatedPosts.map((post, index) => {
+                        return <RelatedPost 
+                            image={post.image}
+                            name={post.name}
+                            likes={post.likes}
+                            comments={post.comments}
+                            key={post.index}
+                            className="singleRelatedPost"
+                        />
+                    })
+                }
+            </div>
+        );
+
         return (
             <div>
                 <NavigationBar />
+                {/* TITLE OF INCIDENT */}
+                <div className="nameOfIncident">Broken Street Lights</div>
+                <div className="aboutIncidentsAuthor">
+                    <img 
+                        src="https://icons-for-free.com/iconfiles/png/512/person+user+icon-1320166085409390336.png"
+                        className="icon1" />
+                    <p> {this.state.nameOfIncidentsAuthor} </p>
+                    <img 
+                        src="https://images.echocommunity.org/85032db6-de87-47fc-abaf-d1fa3a5f498f/calendar-icon-marketing-image.png?w=1200"
+                        className="icon2" />
+                    <p> {this.state.dateOfIncidentAdd} </p>
+                </div>
                 <div className="incidentPageWrapper">
                     {/* COLUMN 1 */}
                     <div className="column1">
@@ -70,6 +188,27 @@ class IncidentPage extends Component {
                                 <p> {this.state.nrOfComments} </p>
                             </div>
                         </div>
+                        {/* COMMENTS */}
+                        <p className="commentTitle">Comments</p>
+                        <div>
+                            {comments}
+                        </div>
+                        {/* RELATED POSTS */}
+                        <p className="commentTitle">Related Posts :</p>
+                        <div className="relatedPostsWrapper">
+                            {relatedPosts}
+                        </div>
+                        {/* LEAVE A COMMENT */}
+                        <p className="commentTitle">Leave a Comment :</p>
+                        <p className="registerLabel yourComment">Your Comment</p>
+                        <div className="addIncidentDescription">
+                            <img 
+                                className="descriptionIcon addCommentIcon"
+                                src="https://cdn.iconscout.com/icon/free/png-512/writing-1893427-1602558.png">    
+                            </img>
+                            <textarea rows="10" className="addIncidentTextarea addCommentField"></textarea>
+                        </div>
+                        <button className="sendMessageButton">Send Message</button>
                     </div>
                     {/* COLUMN 2 */}
                     <div className="column2">
@@ -106,7 +245,20 @@ class IncidentPage extends Component {
                         {/* RECENT INCIDENTS */}
                         <div className="recentIncidentsWrapper">
                             <p className="rightBarTitles">Recent Incidents</p>
+                            {recentIncidents}
                         </div>
+                        {/* TAGS */}
+                        <div className="tagsWrapper">
+                            <p className="rightBarTitles">Tags Cloud</p>
+                            <div className="tags">
+                                {
+                                    this.state.listOfTags.map((tag, index) => {
+                                        return <span className="tagCard"> {tag} </span>
+                                    })
+                                }
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

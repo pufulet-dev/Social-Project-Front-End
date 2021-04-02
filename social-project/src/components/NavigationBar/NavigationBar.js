@@ -4,7 +4,7 @@ import './NavigationBar.css';
 import { BrowserRouter as Router, Link,useHistory } from "react-router-dom";
 // import { connect } from 'react-redux';
 // import { withRouter } from "react-router-dom";
-import SearchIncident from '../../pages/SearchIncident/SearchIncident.js';
+// import SearchIncident from '../../pages/SearchIncident/SearchIncident.js';
 
 class NavBar extends Component {
     render() {

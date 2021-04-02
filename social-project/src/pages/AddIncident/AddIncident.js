@@ -93,7 +93,7 @@ class AddIncident extends Component {
                         <div className="addIncidentDescription">
                             <img 
                                 className="descriptionIcon"
-                                src="https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Comments-512.png">    
+                                src="https://cdn.iconscout.com/icon/free/png-512/writing-1893427-1602558.png">    
                             </img>
                             <textarea rows="10" className="addIncidentTextarea"></textarea>
                         </div>

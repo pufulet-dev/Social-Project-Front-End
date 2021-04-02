@@ -7,7 +7,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import AllIncidents from "./pages/AllIncidents/AllIncidents.js";
 import Home from './pages/Home/Home.js';
-import SearchIncident from './pages/SearchIncident/SearchIncident.js';
 import LogIn from './pages/LogIn/LogIn.js';
 import AddIncident from './pages/AddIncident/AddIncident.js';
 import IncidentPage from './pages/IncidentPage/IncidentPage.js';
@@ -30,10 +29,6 @@ class App extends Component {
                   path="/all-incidents" 
                   exact
                   component={AllIncidents} />
-                <Route 
-                  path="/search-incident"
-                  exact
-                  component={SearchIncident} />
                 <Route 
                   path="/login"
                   exact
