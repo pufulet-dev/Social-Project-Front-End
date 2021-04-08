@@ -104,7 +104,7 @@ class AllIncidents extends Component {
                         <input 
                             type="text" 
                             placeholder="Reported By" 
-                            className="reportedByInput" />
+                            className="reportedByInput registerInput" />
                         <select className="reportedBySelect">
                             <option> Location </option>
                             <option> Anenii Noi </option>

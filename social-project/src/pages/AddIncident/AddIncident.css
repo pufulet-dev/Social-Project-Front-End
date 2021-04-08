@@ -1,7 +1,7 @@
 :root {
     --wrapperBorders: 25%; 
-    --formPaddingRL: 6%;
-    --formPaddingUD: 4%;
+    --formPaddingRL: 8%;
+    --formPaddingUD: 7%;
 }
 
 .addIncidentWrapper {
@@ -15,8 +15,11 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    border: 0.5px solid grey;
+    border: 1px solid rgb(218, 214, 214);
+    box-shadow: 7px 7px 5px 7px #888888;
+    /* background-color: rgb(247, 246, 213); */
     border-radius: 6px;
+    margin-bottom: 60px;
     padding-left: var(--formPaddingRL);
     padding-right: var(--formPaddingRL);
     padding-top: var(--formPaddingUD);
@@ -44,14 +47,37 @@
     margin-top: 7px;
 }
 
+.addSelectInput {
+    height: 29px;
+    width: 103%;
+    border-radius: 4px;
+    border: 1px solid grey;
+    font-size: small;
+    color: rgb(71, 69, 69);
+    background-color: #f5f5f5;
+    border: solid 1.5px #D3D3D3;
+    -webkit-transition: 1s; /* Safari */
+    transition: 1s;
+}
+
+.addSelectInput:hover {
+    box-shadow: 0 0 5pt 0.5pt #D3D3D3;
+}
+
+.addSelectInput:focus {
+    box-shadow: 0 0 5pt 2pt #D3D3D3;
+    outline-width: 0px;
+}
+
 .addIncidentTitle {
     width: 100%;
-    margin-top: 40px;
+    font-size: 30px;
+    margin-top: 70px;
     margin-bottom: 50px;
 }
 
 .addIncidentInput {
-    width: 90%;
+    width: 100%;
 }
 
 .addIncidentDescription {
@@ -59,6 +85,7 @@
     flex-direction: column;
     flex-basis: 100%;
     position: relative;
+    /* background-color: red; */
 }
 
 .addIncidentTextarea {
@@ -66,6 +93,15 @@
     padding-left: 30px;
     padding-top: 3px;
     font-size: 13px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    border: solid 1.5px #D3D3D3;
+    transition: 1s;
+    background-color: #f5f5f5;
+}
+
+.addIncidentTextarea:hover {
+    box-shadow: 0 0 5pt 0.5pt #d3d3d3;
 }
 
 .addIncidentDescriptionTitle {
@@ -76,7 +112,7 @@
 }   
 
 .descriptionIcon {
-    width: 15px;
+    width: 13px;
     height: auto;
     position: absolute;
     padding: 6px;
@@ -85,7 +121,7 @@
 .uploadText {
     flex-basis: 100%;
     margin-left: 0px;
-    margin-top: 10px;
+    margin-top: 14px;
     margin-bottom: 0px;
 }
 
@@ -94,6 +130,7 @@
     justify-content: space-around;
     align-items: center;
     font-size: 12px;
+    margin-top: -4px;
 }
 
 .addIncidentUploading button {
@@ -106,11 +143,17 @@
     flex-basis: 100%;
     margin-left: 0px;
     margin-top: -5px;
+    margin-bottom: -3px;
 }
 
-.reportNow {
+.reportNowButton {
     width: 100%;
+    height: 20px;
     margin-top: 10px;
     margin-left: 0px;
     margin-right: 0px;
+}
+
+.notMandatory:after {
+    content: "";
 }

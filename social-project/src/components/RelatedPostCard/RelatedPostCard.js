@@ -3,8 +3,11 @@ import './RelatedPostCard.css';
 
 const RelatedPost = (props) => {
 
+    let value = "relatedPostWrapper ";
+    if (props.styling) value += props.styling;
+
     return (
-        <div className="relatedPostWrapper">
+        <div className={value}>
             <img
                 className="relatedPostImage" 
                 src={props.image} />

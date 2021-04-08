@@ -3,7 +3,6 @@ import './IncidentPage.css';
 import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import CommentBox from "../../components/CommentBox/CommentBox.js";
 import RecentIncidentCard from "../../components/RecentIncidentCard/RecentIncidentCard.js";
-import RelatedPostCard from '../../components/RelatedPostCard/RelatedPostCard.js';
 import LabelIcon from './LabelIcon.png';
 import RelatedPost from '../../components/RelatedPostCard/RelatedPostCard.js';
 
@@ -204,7 +203,7 @@ class IncidentPage extends Component {
                         <div className="addIncidentDescription">
                             <img 
                                 className="descriptionIcon addCommentIcon"
-                                src="https://cdn.iconscout.com/icon/free/png-512/writing-1893427-1602558.png">    
+                                src="https://img.icons8.com/ios/452/speech-bubble--v2.png">    
                             </img>
                             <textarea rows="10" className="addIncidentTextarea addCommentField"></textarea>
                         </div>
@@ -253,12 +252,30 @@ class IncidentPage extends Component {
                             <div className="tags">
                                 {
                                     this.state.listOfTags.map((tag, index) => {
-                                        return <span className="tagCard"> {tag} </span>
+                                        return (<div className="tagCard"> {tag} </div>)
                                     })
                                 }
                             </div>
                         </div>
-                        
+                        {/* <br /> */}
+                        {/* SOCIAL MEDIA */}
+                        <div className="incidentPageSocialMedia">
+                            <div className="rightBarTitles">Follow us :</div>
+                            <div className="socialMediaSection">
+                                <img    
+                                    className="" 
+                                    src="https://www.flaticon.com/svg/vstatic/svg/2111/2111392.svg?token=exp=1617877307~hmac=995ac1fb15ca3921ac402ffbda191234" />
+                                <img 
+                                    className=""
+                                    src="https://www.flaticon.com/svg/vstatic/svg/1384/1384031.svg?token=exp=1617877997~hmac=ec31b55e3544656f8c234fe42436a662" />    
+                                <img 
+                                    className=""
+                                    src="https://www.flaticon.com/svg/vstatic/svg/733/733635.svg?token=exp=1617877997~hmac=da7c7527629d2c4041e5e9510770a83e" />
+                                <img 
+                                    className=""
+                                    src="https://www.flaticon.com/svg/vstatic/svg/1384/1384028.svg?token=exp=1617878169~hmac=578cd5f6b09851901ef0b9801e04b2f7" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

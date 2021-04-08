@@ -95,12 +95,17 @@
     margin-top: -5px;
 }
 
+.yourComment:after {
+    content: "";
+}
+
 .addCommentField {
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 12px;
     border: 1px solid rgb(196, 191, 191);
     border-radius: 6px;
+    background-color: white;
 }
 
 .addCommentIcon {
@@ -272,10 +277,11 @@
 
 .tagsWrapper {
     margin: 11%;
-    /* margin-bottom: 50px; */
+    height: 160px;
 }
 
 .tagCard {
+    display: block;
     float: left;
     margin-right: 10px;
     margin-bottom: 5px;
@@ -283,8 +289,16 @@
     border: 1px solid grey;
     border-radius: 4px;
     font-size: 10px;
+    /* line-height: 30px; */
 }
 
 .tagCard:hover {
     background-color: rgb(233, 233, 233);
+}
+
+/* SOCIAL MEDIA */
+
+.incidentPageSocialMedia {
+    margin: 11%;
+    margin-top: 0;
 }

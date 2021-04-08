@@ -10,6 +10,7 @@ import Home from './pages/Home/Home.js';
 import LogIn from './pages/LogIn/LogIn.js';
 import AddIncident from './pages/AddIncident/AddIncident.js';
 import IncidentPage from './pages/IncidentPage/IncidentPage.js';
+import PersonalCabUser from './pages/PersonalCabUser/PersonalCabUser.js';
 
 class App extends Component {
 
@@ -41,6 +42,10 @@ class App extends Component {
                   path="/incident-page"
                   exact
                   component={IncidentPage} />
+                <Route 
+                  path="/user-personal-cabinet"
+                  exact
+                  component={PersonalCabUser} />
         </div>
       </Router>
     );

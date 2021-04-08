@@ -1,0 +1,333 @@
+:root {
+    --LRmargins: 18%;
+    --TBmargins: 8%;
+    --paddings: 40px;
+    --columnLRpadding: 20px;
+    --columnTBpadding: 3%;
+}
+
+.userCabFullWrapper {
+    height: 300px;
+    background-color: #2f55d4;
+    margin-top: 0px;
+}
+
+.userCabWrapper {
+    margin-left: var(--LRmargins);
+    margin-right: var(--LRmargins);
+    margin-top: var(--TBmargins);
+    margin-bottom: var(--TBmargins);
+    padding: var(--paddings);
+    background-color: white;
+    border-radius: 8px;
+}
+
+.userHeader {
+    display: flex;
+}
+
+.profilePic {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 100px;
+    margin-right: 25px;
+    margin-left: 20px;
+}
+
+.nameSocialMedia {
+    text-align: left;
+}
+
+.personalCabUsername {
+    font-size: 30px;
+    margin: 0px;
+    margin-top: 17px;
+}
+
+.socialMedia {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: gray;
+}
+
+.socailMediaIcon {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+    opacity: 0.5;
+}
+
+/* COLUMNS */
+.userCabColumnsWrapper {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.columnStatistics {
+    padding-left: var(--columnLRpadding);
+    padding-right: var(--columnLRpadding);
+    padding-top: var(--columnTBpadding);
+    padding-bottom: var(--columnTBpadding);
+    width: 30%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    margin-bottom: 50px;
+}
+
+.columnAbout {
+    width: 70%;
+    padding-right: 15px;
+    /* border: 1px solid black; */
+    /* background-color: red; */
+}
+
+/* COLUMN 1 */
+
+.leftBarTitles {
+    margin: 0;
+    font-size: 17px;
+    text-align: left;
+    font-weight: 500;
+}
+
+/* follow statistic */
+
+.followStatistic {
+    display: flex;
+}
+
+.followersWrapper {
+    width: 45%;
+    margin: 0px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+.followingWrapper {
+    width: 45%;
+    margin: 0px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+.followersIcon {
+    margin-top: 5px;
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+}
+
+.followingIcon {
+    width: 29px;
+    height: 29px;
+    opacity: 0.5;
+}
+
+.followCount {
+    font-size: 17px;
+    color: rgb(44, 44, 44);
+    font-weight: 500;
+    margin-top: -5px;
+}
+
+.followTitle {
+    color: grey;
+    font-size: 12px;
+    margin-top: 0px;
+}
+
+.progressBar {
+    position: relative;
+    width: 100%;
+    border: 1px solid rgb(214, 209, 209);
+    border-radius: 5px;
+    height: 5px;
+}
+
+.progressTrack {
+    height: 5px;
+    background-color: #2f55d4;
+    border-radius: 5px;
+}
+
+.progressWrapper {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: grey;
+}
+
+.progressWrapper div {
+    margin-left: auto;
+}
+
+/* OPTIONS */
+
+.optionsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+
+.userOption {
+    width: 45%;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    border: 1px solid rgb(179, 178, 178);
+    border-radius: 7px;
+    font-size: 14px;
+    color: grey;
+}
+
+.profileOption, .userOption:hover {
+    background-color: #2f55d4;
+    color: white;
+    font-weight: 500;
+    border: 1px solid #2f55d4;
+    cursor: pointer;
+}
+
+.userOption p {
+    margin: 0px;
+}
+
+.cabProfileIcon {
+    width: 25px;
+    height: 25px;
+    opacity: 0.9;
+}
+
+.cabMembersIcon {
+    width: 25px;
+    height: 25px;
+    opacity: 0.6;
+}
+
+.cabMessagesIcon {
+    width: 25px;
+    height: 25px;
+    opacity: 0.6;
+}
+
+/* COLUMN 2 */
+
+.userBiography {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    text-align: left;
+    font-size: 12px;
+    color: grey;
+}
+
+/* personal details  */
+
+.personalDetailsCard {
+    /* border: 1px solif grey; */
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.personalDetailsCard img {
+    width: 20px;
+    height: 20px;
+    margin: 4px;
+}
+
+.personalDetailsCard p {
+    font-size: 12px;
+    color: #2f55d4;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.personalDetailsCard div {
+    font-size: 11px;
+    color: grey;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.titleReportedIncidents {
+    margin-top: 40px;
+}
+
+.reportedIncidentsByUserWrapper {
+    display: flex;
+    justify-content:space-between;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.userPersCabSeeMoreButton {
+    width: 23%;
+    float: left;
+    margin: 0;
+}
+
+/* SOCIAL MEDIA SECTION */
+
+.socialMediaSection {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    margin-top: 8px;
+    margin-left: 0;
+}
+
+.socialMediaSection img {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    padding: 6px;
+    margin-right: 7px;
+}
+
+.socialMediaSection img:hover {
+    background-color: rgb(233, 231, 231);
+    width: 21px;
+    height: 21px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* USER OPTIONS IN HEADER */
+
+.userOptionsWrapper {
+    display: flex;
+    margin-left: 400px;
+}
+
+.userOption1 {
+    width: 14px;
+    height: 16px;
+    margin-right: 7px;
+}
+
+.userOption2 {
+    width: 14px;
+    height: 15px;
+    margin-right: 7px;
+}
+
+.userOption1, .userOption2 {
+    padding: 3px;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+
+.userOption1:hover, .userOption2:hover {
+    background-color: rgb(233, 231, 231); 
+    cursor: pointer;   
+}

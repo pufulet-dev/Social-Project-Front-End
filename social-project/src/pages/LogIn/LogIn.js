@@ -8,9 +8,9 @@ class LogIn extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "",
-            password: "",
-            loginStatus: "nothing",
+            username: '',
+            password: '',
+            loginStatus: [],
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleLoginRequest = this.handleLoginRequest.bind(this);
@@ -30,17 +30,29 @@ class LogIn extends Component {
         const requestOptions = {
             method: 'GET',
             headers: { 
-                'content-type': 'application/json',
-                'username': this.state.username,
-                'password': this.state.password
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'username': 'test',
+                'password': 'test',
             }
         };
-        const response = await fetch("http://localhost:8080/app-api/login");
+        // console.log("aici1");
+        // console.log(this.state.password);
+        const response = await fetch("http://localhost:8080/app-api/login", requestOptions);
         const data = await response.json();
         this.setState({loginStatus: data});
-        console.log(data);
-        console.log('aici');
-        // console.log(this.state.username);
+        console.log(this.state.loginStatus);
+
+        // http://localhost:8080/app-api/login
+
+        // const headers = { 
+        //     'Content-Type': 'application/json',
+        //     'username': 'test',
+        //     'password': 'test',
+        // };
+        // fetch('http://localhost:8080/app-api/login', { headers })
+        // .then(response => response.json())
+        // .then(data => this.setState({ loginStatus: data }));
     };
 
     // http://localhost:8080/app-api/login?username=${this.state.username}&password=${this.state.password}
