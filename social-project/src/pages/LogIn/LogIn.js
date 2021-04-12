@@ -3,6 +3,10 @@ import { withRouter } from 'react-router-dom';
 import './LogIn.css';
 import LogInImage from './LogInImage.png';
 
+import axios from 'axios';
+// import {​​​​​ REFRESH_TOKEN_STORAGE, TOKEN_STORAGE }​​​​​ from './constants';
+// import ENV_HOST from './constants/env';
+
 class LogIn extends Component {
 
     constructor(props) {
@@ -26,39 +30,109 @@ class LogIn extends Component {
         });
     };
 
-    async handleLoginRequest() {
-        const requestOptions = {
-            method: 'GET',
-            headers: { 
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
+    handleLoginRequest() {
+        // const requestOptions = {
+        //     method: 'GET',
+        //     headers: { 
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json',
+        //         'username': 'test',
+        //         'password': 'test'
+        //     }
+        // };
+        // const response = await fetch("http://localhost:8080/app-api/login", requestOptions);
+        // const data = await response.json();
+        // this.setState({loginStatus: data});
+        // console.log(this.state.loginStatus);
+
+        const options = {
+            headers: {
                 'username': 'test',
                 'password': 'test',
             }
-        };
-        // console.log("aici1");
-        // console.log(this.state.password);
-        const response = await fetch("http://localhost:8080/app-api/login", requestOptions);
-        const data = await response.json();
-        this.setState({loginStatus: data});
-        console.log(this.state.loginStatus);
-
-        // http://localhost:8080/app-api/login
-
-        // const headers = { 
-        //     'Content-Type': 'application/json',
-        //     'username': 'test',
-        //     'password': 'test',
-        // };
-        // fetch('http://localhost:8080/app-api/login', { headers })
-        // .then(response => response.json())
-        // .then(data => this.setState({ loginStatus: data }));
+          };
+          
+          axios
+            .get('http://localhost:8080/app-api/login', options)
+            .then(response => {
+                console.log('respppppppp');
+                console.log(response);
+            })
+            .catch(error => {
+                console.log('errrrrrrr');
+                console.log(error);
+            });
     };
 
-    // http://localhost:8080/app-api/login?username=${this.state.username}&password=${this.state.password}
+    
 
+    // useEffect(() => {​​​​​
+    //     setLoading(true);
+    //     axios('http://localhost:8080/app-api/login', {​​​​​
+    //         headers: {​​​​​ username: "test", password: "test" }​​​​​,
+    //         params: {​​​​​
+    //                 // onlyJobWithTriggers: jobTriggerOnly,
+    //         }​​​​​,
+    //     }​​​​​)
+    //         .then((res) => {​​​​​
+    //             console.log(res);
+    //             // setData(res.data.responseObjects.jobNames);
+    //             // setCount(res.data.responseObjects.pagination.totalItems);
+    //     }​​​​​)
+    //         // .then(() => setLoading(false))
+    //         .catch((error) => {​​​​​
+    //             // enqueueSnackbar(`Error: ${​​​​​error}​​​​​`, {​​​​​
+    //             // variant: 'error',
+    //             console.log(error);
+    //         }​​​​​);
+    //     }​​​​​);
+    // }​​​​​);
 
     render() {
+
+        // const ENV_HOST = "localhost:8080";
+
+
+        // axios.defaults.baseURL = "https://​​​​​localhost:8080/app-api/login";
+        // axios.interceptors.request.use(
+        //    (request) => {​​​​​
+        //       const token =
+        //          localStorage.getItem(TOKEN_STORAGE) ||
+        //          sessionStorage.getItem(TOKEN_STORAGE);
+        // if (request.url !== 'headers/get-build-version-and-get-site-name') {​​​​​
+        //          request.headers.Authorization = token;
+        // }​​​​​
+        //       console.log('request: ', request);
+        // return request;
+        // }​​​​​,
+        // (error) => {​​​​​
+        //       return Promise.reject(error);
+        // }​​​​​
+        // );
+        // axios.interceptors.response.use(
+        //    (response) => {​​​​​
+        //       console.log('response success: ', response);
+        // return response;
+        // }​​​​​,
+        // (error) => {​​​​​
+        //       console.log('response ERROR: ', error);
+        // if (
+        //          error.response.status === 401 &&
+        //          window.location.pathname !== '/login'
+        // ) {​​​​​
+        //          let refreshToken =
+        //             localStorage.getItem(REFRESH_TOKEN_STORAGE) ||
+        //             sessionStorage.getItem(REFRESH_TOKEN_STORAGE);
+        // console.log('REFRESH-token ', refreshToken);
+        // window.location.replace(window.location.origin + '/login');
+        // }​​​​​
+        //       return Promise.reject(error);
+        // }​​​​​
+        // );
+        // const loginAxios = axios.create({​​​​​
+        //    baseURL: "https://​​​​​localhost:8080/app-api/login",
+        // }​​​​​);
+
         return (
             <div> 
                 <div className="wrapper">

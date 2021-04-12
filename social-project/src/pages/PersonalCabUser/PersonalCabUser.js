@@ -16,7 +16,7 @@ class PersonalCabUser extends Component {
             userPhoneNumber: "(+12) 1254-56-4896",
             nrOfFollowers: "102",
             nrOfFollowing: "205",
-            incidentsAdded: "14",
+            incidentsAdded: "7",
             incidentsAddedByUser: [
                 {
                     image: "https://pixnio.com/free-images/2019/02/07/2019-02-07-09-14-13-1200x900.jpg",

@@ -1,0 +1,80 @@
+  
+{​​​​​
+   "name": "enhub-v2",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {​​​​​
+        "@material-ui/core": "^4.9.7",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.46",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "clsx": "latest",
+    "js-file-download": "^0.4.11",
+    "notistack": "^0.9.9",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+    }​​​​​,
+    "scripts": {​​​​​
+        "start": "react-scripts start",
+        "start:common": "cross-env REACT_APP_ENV=common npm run start",
+        "start:qa": "cross-env REACT_APP_ENV=qa npm run start",
+        "start:stage": "cross-env REACT_APP_ENV=stage npm run start",
+        "start:prod": "cross-env REACT_APP_ENV=prod npm run start",
+        "build-common": "cross-env-shell REACT_APP_ENV=common react-scripts build",
+        "build-dev": "cross-env-shell REACT_APP_ENV=dev react-scripts build",
+        "build-qa": "cross-env-shell REACT_APP_ENV=qa react-scripts build",
+        "build-uat": "cross-env-shell REACT_APP_ENV=uat react-scripts build",
+        "build-prod": "cross-env-shell REACT_APP_ENV=prod react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "prettier": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
+        "lint": "./node_modules/.bin/eslint src --config .eslintrc.json --ext .js,.jsx --color",
+        "lint-fix": "./node_modules/.bin/eslint src --config .eslintrc.json --ext .js,.jsx --color --fix"
+    }​​​​​,
+    "eslintConfig": {​​​​​
+        "extends": "react-app"
+    }​​​​​,
+    "lint-staged": {​​​​​
+        "*.js": [
+            "npm run prettier",
+            "npm run lint",
+            "git add"
+        ]
+    }​​​​​,
+    "husky": {​​​​​
+        "hooks": {​​​​​
+            "pre-commit": "lint-staged"
+    }​​​​​
+    }​​​​​,
+    "browserslist": {​​​​​
+        "production": [
+            ">0.2%",
+    "not dead",
+    "not op_mini all"
+    ],
+    "development": [
+            "last 1 chrome version",
+    "last 1 firefox version",
+    "last 1 safari version"
+    ]
+    }​​​​​,
+    "devDependencies": {​​​​​
+        "cross-env": "^7.0.2",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-simple-import-sort": "^5.0.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.9",
+    "prettier": "2.0.2",
+    "redux-devtools-extension": "^2.13.8"
+    }​​​​​
+}​​​​​
+
