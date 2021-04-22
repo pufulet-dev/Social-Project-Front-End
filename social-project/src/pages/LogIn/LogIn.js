@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import './LogIn.css';
 import LogInImage from './LogInImage.png';
-
+import { Redirect } from "react-router-dom";
 import axios from 'axios';
-// import {​​​​​ REFRESH_TOKEN_STORAGE, TOKEN_STORAGE }​​​​​ from './constants';
-// import ENV_HOST from './constants/env';
+import { FaExclamationCircle } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
 
 class LogIn extends Component {
 
@@ -14,7 +14,9 @@ class LogIn extends Component {
         this.state = {
             username: '',
             password: '',
-            loginStatus: [],
+            computedMessage: '',
+            showNotificationBox: false,
+            loginStatus: false,
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleLoginRequest = this.handleLoginRequest.bind(this);
@@ -31,107 +33,54 @@ class LogIn extends Component {
     };
 
     handleLoginRequest() {
-        // const requestOptions = {
-        //     method: 'GET',
-        //     headers: { 
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //         'username': 'test',
-        //         'password': 'test'
-        //     }
-        // };
-        // const response = await fetch("http://localhost:8080/app-api/login", requestOptions);
-        // const data = await response.json();
-        // this.setState({loginStatus: data});
-        // console.log(this.state.loginStatus);
 
         const options = {
             headers: {
-                'username': 'test',
-                'password': 'test',
+                'username': this.state.username,
+                'password': this.state.password
             }
-          };
+        };
           
-          axios
+        axios
             .get('http://localhost:8080/app-api/login', options)
             .then(response => {
-                console.log('respppppppp');
-                console.log(response);
+                // console.log(response);
+                // alert('You loged in successfully!');
+                this.setState({
+                    // loginStatus: true,
+                    computedMessage: 'You loged in successfully!',
+                    showNotificationBox: true,
+                    loginStatus: true
+                });
             })
             .catch(error => {
-                console.log('errrrrrrr');
-                console.log(error);
+                // console.log('errrrrrrr');
+                // console.log(error);
+                // alert("User doesn't exists!");
+                this.setState({
+                    computedMessage: "User doesn't exists!",
+                    showNotificationBox: true,
+                    // loginStatus: true
+                });
             });
     };
-
     
-
-    // useEffect(() => {​​​​​
-    //     setLoading(true);
-    //     axios('http://localhost:8080/app-api/login', {​​​​​
-    //         headers: {​​​​​ username: "test", password: "test" }​​​​​,
-    //         params: {​​​​​
-    //                 // onlyJobWithTriggers: jobTriggerOnly,
-    //         }​​​​​,
-    //     }​​​​​)
-    //         .then((res) => {​​​​​
-    //             console.log(res);
-    //             // setData(res.data.responseObjects.jobNames);
-    //             // setCount(res.data.responseObjects.pagination.totalItems);
-    //     }​​​​​)
-    //         // .then(() => setLoading(false))
-    //         .catch((error) => {​​​​​
-    //             // enqueueSnackbar(`Error: ${​​​​​error}​​​​​`, {​​​​​
-    //             // variant: 'error',
-    //             console.log(error);
-    //         }​​​​​);
-    //     }​​​​​);
-    // }​​​​​);
-
+        
     render() {
 
-        // const ENV_HOST = "localhost:8080";
+        let notificationBox;
 
-
-        // axios.defaults.baseURL = "https://​​​​​localhost:8080/app-api/login";
-        // axios.interceptors.request.use(
-        //    (request) => {​​​​​
-        //       const token =
-        //          localStorage.getItem(TOKEN_STORAGE) ||
-        //          sessionStorage.getItem(TOKEN_STORAGE);
-        // if (request.url !== 'headers/get-build-version-and-get-site-name') {​​​​​
-        //          request.headers.Authorization = token;
-        // }​​​​​
-        //       console.log('request: ', request);
-        // return request;
-        // }​​​​​,
-        // (error) => {​​​​​
-        //       return Promise.reject(error);
-        // }​​​​​
-        // );
-        // axios.interceptors.response.use(
-        //    (response) => {​​​​​
-        //       console.log('response success: ', response);
-        // return response;
-        // }​​​​​,
-        // (error) => {​​​​​
-        //       console.log('response ERROR: ', error);
-        // if (
-        //          error.response.status === 401 &&
-        //          window.location.pathname !== '/login'
-        // ) {​​​​​
-        //          let refreshToken =
-        //             localStorage.getItem(REFRESH_TOKEN_STORAGE) ||
-        //             sessionStorage.getItem(REFRESH_TOKEN_STORAGE);
-        // console.log('REFRESH-token ', refreshToken);
-        // window.location.replace(window.location.origin + '/login');
-        // }​​​​​
-        //       return Promise.reject(error);
-        // }​​​​​
-        // );
-        // const loginAxios = axios.create({​​​​​
-        //    baseURL: "https://​​​​​localhost:8080/app-api/login",
-        // }​​​​​);
+        if (this.state.showNotificationBox) {
+            notificationBox = (
+                <div className="registerNotificationBox">
+                    <div>
+                        <FaExclamationCircle />
+                        <p> {this.state.computedMessage} </p>
+                        {/* <FaTimes /> */}
+                    </div>
+                </div>
+            );
+        }
 
         return (
             <div> 
@@ -164,7 +113,9 @@ class LogIn extends Component {
                         <img src={LogInImage} className="logInImage" />
                         <div className="registerBox logInBox">
                             <p className="welcome" > Login </p> 
-                            <p className="registerLabel"> Username </p>
+                            <div className="inputLabelWrapper">
+                                <p className="registerLabel"> Username </p>
+                            </div>
                             <div className="registerInputPieceWrapper" >
                                 <input 
                                     type="text" 
@@ -173,10 +124,9 @@ class LogIn extends Component {
                                     onChange={this.handleInputChange}
                                     className="registerInput" />
                             </div>
-                            <p>
-                                {/* {this.state.loginStatus} */}
-                            </p>
-                            <p className="registerLabel">Password</p>
+                            <div className="inputLabelWrapper">
+                                <p className="registerLabel"> Password </p>
+                            </div>
                             <div className="registerInputPieceWrapper" >
                                 <input 
                                     type="password" 
@@ -202,6 +152,7 @@ class LogIn extends Component {
                                 <a href="/" className="signUp" > Sign up </a>
                             </div>
                         </div>
+                        {notificationBox}
                     </div>
             </div>
         );

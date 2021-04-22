@@ -54,6 +54,21 @@
     margin-left: 3px;
 }
 
+@keyframes FadeAnimation {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+.registerNotificationBox {
+    animation: FadeAnimation 6s ease-in 1.5s forwards;
+}
+
 @media screen and (max-width: 600px) {
     .logInWrapper {
         display: flex;
