@@ -45,11 +45,15 @@ class App extends Component {
                 <Route 
                   path="/user-personal-cabinet"
                   exact
-                  component={PersonalCabUser} />
+                  // component={PersonalCabUser}
+                  render={(props) => <PersonalCabUser {...props}/>} />
         </div>
       </Router>
     );
   }
 };
+
+{/* <Route path="/test/new" render={(props) => <NewTestComp {...props}/>}/> */}
+
 
 export default App;

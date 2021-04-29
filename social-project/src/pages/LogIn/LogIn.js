@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import './LogIn.css';
 import LogInImage from './LogInImage.png';
-import { Redirect } from "react-router-dom";
 import axios from 'axios';
+import  { Redirect } from 'react-router-dom';
 import { FaExclamationCircle } from 'react-icons/fa';
 import { FaTimes } from 'react-icons/fa';
 
+import Context from '../../store/context.js';
+
 class LogIn extends Component {
+
+    static contextType = Context;
 
     constructor(props) {
         super(props);
@@ -15,6 +19,7 @@ class LogIn extends Component {
             username: '',
             password: '',
             computedMessage: '',
+            token: '',
             showNotificationBox: false,
             loginStatus: false,
         };
@@ -34,33 +39,31 @@ class LogIn extends Component {
 
     handleLoginRequest() {
 
+        const {state, actions} = this.context;
+
         const options = {
             headers: {
                 'username': this.state.username,
                 'password': this.state.password
             }
         };
+
+        var self = this;
           
         axios
-            .get('http://localhost:8080/app-api/login', options)
+            .get(`${state.path}/app-api/login`, options)
             .then(response => {
-                // console.log(response);
-                // alert('You loged in successfully!');
-                this.setState({
-                    // loginStatus: true,
+                self.setState({
                     computedMessage: 'You loged in successfully!',
                     showNotificationBox: true,
-                    loginStatus: true
-                });
+                    loginStatus: true,
+                    token: response.headers.authorization
+                });            
             })
             .catch(error => {
-                // console.log('errrrrrrr');
-                // console.log(error);
-                // alert("User doesn't exists!");
                 this.setState({
                     computedMessage: "User doesn't exists!",
                     showNotificationBox: true,
-                    // loginStatus: true
                 });
             });
     };
@@ -76,10 +79,18 @@ class LogIn extends Component {
                     <div>
                         <FaExclamationCircle />
                         <p> {this.state.computedMessage} </p>
+                        {/* <a href='/user-personal-cabinet' token={this.state.token}> Go to profile. </a> */}
                         {/* <FaTimes /> */}
                     </div>
                 </div>
             );
+        }
+
+        const {state, actions} = this.context;
+
+        if (this.state.loginStatus) {
+            actions({type: 'setState', payload: {...state, authorizationToken: this.state.token}});
+            return <Redirect to='/user-personal-cabinet' />
         }
 
         return (
@@ -109,6 +120,10 @@ class LogIn extends Component {
                             
                         </div>
                     </div>
+
+                        {/* test */}
+                    {/* <h1>Token: {state.authorizationToken} </h1> */}
+
                     <div className="logInWrapper"> 
                         <img src={LogInImage} className="logInImage" />
                         <div className="registerBox logInBox">

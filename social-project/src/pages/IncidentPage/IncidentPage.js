@@ -77,6 +77,10 @@ class IncidentPage extends Component {
         this.handleHeartClick = this.handleHeartClick.bind(this);
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     handleHeartClick() {
         let value = "", heartState = "";
         if (this.state.nrOfLikes === "Confirm") {

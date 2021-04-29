@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component, useContext } from 'react';
+import Context from '../../store/context.js';
+
 import './Home.css';
 import { withRouter } from 'react-router-dom';
 import bottomImage from './bottomPhoto.png';
@@ -10,6 +12,8 @@ import { FaTimes } from 'react-icons/fa';
 
 
 class Home extends Component {
+
+    static contextType = Context;
 
     constructor(props) {
         super(props);
@@ -46,70 +50,37 @@ class Home extends Component {
         });
       
         if (name === "username") {
-            // console.log("uuuuu");
-            let s = value, okLatin = 1, okNum = 1, okBigLet = 1, okSmallLet = 1;
-            for (let i=0; i<s.length; i++) {
-                if (s[i] >= '0' && s[i] <= '9') okNum = 1;
-                else if (s[i] >= 'a' && s[i] <= 'z') okSmallLet = 1;
-                else if (s[i] >= 'A' && s[i] <= 'Z') okBigLet = 1;
-                else if (s[i] == '-' || s[i] == '_') {}
-                else okLatin = 0;
-            }
-            if (s.length >= 6 && okLatin && okNum && okBigLet && okSmallLet) {
-                this.setState({
-                    usernameValidation: true
-                })
-            } else {
-                this.setState({
-                    usernameValidation: false
-                })
-            }
+            const regex0 = new RegExp('[a-zA-Z0-9]+');
+            this.setState({
+                usernameValidation: regex0.test(value)
+            });
         } else if (name === "email") {
-            let okA = 0, okP = 0, ok = 0, s = value;
-            for (let i=0; i<s.length; i++) {
-                if (s[i] === '@') okA = 1;
-                else if(s[i] === '.') okP = 1;
-            }
-            if (okA && okP) ok = 1;
+            const regex1 = new RegExp('(\w\.?)+@[\w\.-]+\.\w{2,4}');
             this.setState({
-                emailValidation: ok,
-            })
+                emailValidation: regex1.test(value)
+            });
         } else if (name === "idnp") {
-            let ok = 1, s = value;
-            for (let i=0; i<s.length; i++) {
-                if (s[i] >= '0' && s[i] <= '9') {}
-                else if (s[i] >= 'a' && s[i] <= 'z') {}
-                else if (s[i] >= 'A' && s[i] <= 'Z') {}
-                else ok = 0;
-            }
-            if (s.length < 8) ok = 0;
+            const regex2 = new RegExp('(^\d{13}$)');
             this.setState({
-                idnpValidation: ok,
-            })
+                idnpValidation: regex2.test(value)
+            });
         } else if (name === "password") {
-            let s = value, okSmall = 0, okBig = 0, okNum = 0, okDiff = 0, ok = 0;
-            for (let i=0; i<s.length; i++) {
-                if (s[i] >= '0' && s[i] <= '9') okNum = 1;
-                else if (s[i] >= 'a' && s[i] <= 'z') okSmall = 1;
-                else if (s[i] >= 'A' && s[i] <= 'Z') okBig = 1;
-                else okDiff = 1;
-            }
-            if (s.length >= 8 && okNum && okSmall && okBig && !okDiff) ok = 1;
+            const regex3 = new RegExp('(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$');
             this.setState({
-                passwordValidation: ok,
-            })
+                passwordValidation: regex3.test(value)
+            });
         } else if (name == "confirmPassword") {
-            let s = value, ok = 1;
-            if (s != this.state.password) ok = 0;
-            if (!this.state.passwordValidation) ok = 0;
             this.setState({
-                confirmPasswordValidation: ok,
+                confirmPasswordValidation: (value === this.state.password && this.state.passwordValidation),
             })
         }
         
     };
 
     handleRegistRequest() {
+
+        const {state, actions} = this.context;
+        actions({type: 'setState', payload: {...state, value: 'totok'}})
 
         let aux = this.state;
 
@@ -129,11 +100,9 @@ class Home extends Component {
             return;
         }
 
-
-
         axios({
             method: 'post',
-            url: 'http://localhost:8080/app-api/common/regist',
+            url: `${state.path}/app-api/common/regist`,
             data: {
                 email: this.state.email,
                 idnp: this.state.idnp, 
@@ -156,11 +125,9 @@ class Home extends Component {
                     // registStatus: true,  //CHANGE AFTER
                     computedMessage: "Something went wrong.",
                     showNotificationBox: true,
-                    // loginRedirectMessage: 'Click to log in.'
                 });
             });
             
-        // http://localhost:8080/app-api/common/regist
     };
     
     render() {
@@ -180,64 +147,69 @@ class Home extends Component {
             );
         }
 
-        let usernameReq;
+        let usernameReq = "";
 
-        if (!this.state.usernameValidation) {
+        if (document.getElementById('usernameId') === document.activeElement) {
             usernameReq = (
-                <p className="inputStatus red"> Latin letters, digits, underscore or dash characters (min. 6). </p>
+                <p className="inputStatus red"> Must contain latin letters, digits and symbols. </p>
             );
-        } else {
-            usernameReq = (
-                <p className="inputStatus green"> Good. </p>
-            );
+            if (this.state.usernameValidation) {
+                usernameReq = (
+                    <p className="inputStatus green"> Good. </p>
+                );
+            }
         }
 
-        let emailReq;
+        let emailReq = "";
 
-        if (this.state.emailValidation) {
-            emailReq = (
-                <p className="inputStatus green"> Good. </p>
-            );
-        } else {
+        if (document.getElementById('emailId') === document.activeElement) {
             emailReq = (
                 <p className="inputStatus red"> Invalid Email. </p>
             );
+            if (this.state.emailValidation) {
+                emailReq = (
+                    <p className="inputStatus green"> Good. </p>
+                );
+            }
         }
 
-        let idnpReq;
+        let idnpReq = "";
 
-        if (this.state.idnpValidation) {
+        if (document.getElementById('idnpId') === document.activeElement) {
             idnpReq = (
-                <p className="inputStatus green"> Good. </p>
-            ) 
-        } else {
-            idnpReq = (
-                <p className="inputStatus red"> Only Latin letters and digits (min. 8). </p>
+                <p className="inputStatus red"> Must contain 13 digits. </p>
             );
+            if (this.state.idnpValidation) {
+                idnpReq = (
+                    <p className="inputStatus green"> Good. </p>
+                ) 
+            } 
         }
 
-        let passwordReq;
-
-        if (this.state.passwordValidation) {
+        let passwordReq = "";
+        
+        if (document.getElementById('passwordId') === document.activeElement) {
             passwordReq = (
-                <p className="inputStatus green"> Good. </p>
-            ) 
-        } else {
-            passwordReq = (
-                <p className="inputStatus red"> 1 lowercase and 1 uppercase latin letter, 1 digit (min. 8). </p>
-            )
+                <p className="inputStatus red"> At leats one A-Z, one a-z, one digit, one symbol (min. 8 char.)  </p>
+            );
+            if (this.state.passwordValidation) {
+                passwordReq = (
+                    <p className="inputStatus green"> Good. </p>
+                ) 
+            } 
         }
 
-        let confirmPasswordReq;
+        let confirmPasswordReq = "";
 
-        if (this.state.confirmPasswordValidation) {
+        if (document.getElementById('confirmPasswordId') === document.activeElement) {
             confirmPasswordReq = (
-                <p className="inputStatus green"> Good. </p>
-            ) 
-        } else {
-            confirmPasswordReq = (
-                <p className="inputStatus red"> Incorrect password. </p>
-            ) 
+                <p className="inputStatus red"> Must be the same password. </p>
+            ) ;
+            if (this.state.confirmPasswordValidation) {
+                confirmPasswordReq = (
+                    <p className="inputStatus green"> Good. </p>
+                ) 
+            } 
         }
 
         // if (this.state.registStatus) {
@@ -246,6 +218,8 @@ class Home extends Component {
 
         // IMPLEMENT X BUTTON
         // SOLVE BUG: WINDOW SHOWS ONLY ONCE
+
+        const {state} = this.context;
 
         return (
             <div>
@@ -273,7 +247,7 @@ class Home extends Component {
                         </div>
                     </div> 
                 </div>
-                            
+
                 {/* HERO SECTION */}
                 <div className="allPage">
                     <div className="heroWrapper">
@@ -283,64 +257,68 @@ class Home extends Component {
                     </div>
                     <div className="registerBox">
                         <p className="welcome">Welcome</p>
-                        {/* ! maybe add placeholders */}
                         <div className="inputLabelWrapper">
                             <p className="registerLabel">User Name</p>
-                            {usernameReq}
                         </div>
+                        {usernameReq}
                         <div className="registerInputPieceWrapper" >
                             <input 
                                 required
                                 type="text" 
-                                name="username" 
+                                name="username"
+                                id="usernameId" 
                                 value={this.state.username} 
                                 onChange={this.handleInputChange}
                                 className="registerInput" />  
                         </div>
                         <div className="inputLabelWrapper">
                             <p className="registerLabel">Your Email</p>
-                            {emailReq}
                         </div>
+                        {emailReq}
                         <div className="registerInputPieceWrapper" >
                             <input 
                                 type="text"     
-                                name="email" 
+                                name="email"
+                                id="emailId" 
                                 value={this.state.email} 
                                 onChange={this.handleInputChange}
                                 className="registerInput" />
                         </div>
                         <div className="inputLabelWrapper">
                             <p className="registerLabel">IDNP</p>
-                            {idnpReq}
                         </div>
+                        {idnpReq}
                         <div className="registerInputPieceWrapper" >
                             <input 
                                 type="text" 
-                                name="idnp" 
+                                name="idnp"
+                                id="idnpId" 
                                 value={this.state.idnp}
                                 onChange={this.handleInputChange} 
                                 className="registerInput" />
                         </div>
                         <div className="inputLabelWrapper">
                             <p className="registerLabel">Password</p>
-                            {passwordReq}
                         </div>
+                        {passwordReq}
                         <div className="registerInputPieceWrapper" >
                             <input 
                                 type="password" 
-                                name="password" 
+                                name="password"
+                                id="passwordId" 
                                 value={this.state.password}
                                 onChange={this.handleInputChange} 
                                 className="registerInput" />
                         </div>
                         <div className="inputLabelWrapper">
                             <p className="registerLabel"> Confirm Password</p>
-                            {confirmPasswordReq}
                         </div>
+                        {confirmPasswordReq}
                         <div className="registerInputPieceWrapper" >
                             <input 
                                 type="password" 
                                 name="confirmPassword" 
+                                id="confirmPasswordId"
                                 checked={this.state.confirmPassword}
                                 onChange={this.handleInputChange} 
                                 className="registerInput" />

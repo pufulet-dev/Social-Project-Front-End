@@ -7,26 +7,39 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import reducer from './store/reducer.js';
+// import reducer from './store/reducer.js';
 
-import { BrowserRouter } from 'react-router-dom';
+import useGlobalState from './store/useGlobalState.js';
+import Context from './store/context.js';
 
-const store = createStore(reducer);
+// import { BrowserRouter } from 'react-router-dom';
 
-const app = (
-  <Provider>
-    <BrowserRouter>
+const Index = () => {
+  const store = useGlobalState();
+  return (
+    <Context.Provider value={store}>
       <App />
-    </BrowserRouter>
-  </Provider>
-);
+    </Context.Provider>
+  )
+}
+
+// const store = createStore(reducer);
+
+// const app = (
+//   <Provider>
+//     <BrowserRouter>
+//       <App />
+//     </BrowserRouter>
+//   </Provider>
+// );
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store} >
-      <App />
-    </Provider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  //   <Provider store={store} >
+  //     <App />
+  //   </Provider>
+  // </React.StrictMode>,
+  <Index />,
   document.getElementById('root')
 );
 

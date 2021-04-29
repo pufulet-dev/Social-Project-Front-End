@@ -67,6 +67,10 @@ class AllIncidents extends Component {
         this.props.history.push('/incident-page')
     };
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     render() {
         let cards = (
             <div className="tableOfCards">
@@ -86,7 +90,7 @@ class AllIncidents extends Component {
         );
 
         return (
-            <div className="allIncidentsWrapper">
+            <div className="allIncidentsWrapper" >
                 <NavigationBar />
                 <div className="searchIncidentWrapper" >
                     <div className="addIncident" >
