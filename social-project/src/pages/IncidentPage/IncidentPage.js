@@ -5,6 +5,10 @@ import CommentBox from "../../components/CommentBox/CommentBox.js";
 import RecentIncidentCard from "../../components/RecentIncidentCard/RecentIncidentCard.js";
 import LabelIcon from './LabelIcon.png';
 import RelatedPost from '../../components/RelatedPostCard/RelatedPostCard.js';
+import {FaFacebook} from "react-icons/fa";
+import {FaInstagram} from "react-icons/fa";
+import {FaSnapchat} from "react-icons/fa";
+import {FaTwitter} from "react-icons/fa";
 
 class IncidentPage extends Component {
 
@@ -261,23 +265,14 @@ class IncidentPage extends Component {
                                 }
                             </div>
                         </div>
-                        {/* <br /> */}
                         {/* SOCIAL MEDIA */}
                         <div className="incidentPageSocialMedia">
                             <div className="rightBarTitles">Follow us :</div>
                             <div className="socialMediaSection">
-                                <img    
-                                    className="" 
-                                    src="https://www.flaticon.com/svg/vstatic/svg/2111/2111392.svg?token=exp=1617877307~hmac=995ac1fb15ca3921ac402ffbda191234" />
-                                <img 
-                                    className=""
-                                    src="https://www.flaticon.com/svg/vstatic/svg/1384/1384031.svg?token=exp=1617877997~hmac=ec31b55e3544656f8c234fe42436a662" />    
-                                <img 
-                                    className=""
-                                    src="https://www.flaticon.com/svg/vstatic/svg/733/733635.svg?token=exp=1617877997~hmac=da7c7527629d2c4041e5e9510770a83e" />
-                                <img 
-                                    className=""
-                                    src="https://www.flaticon.com/svg/vstatic/svg/1384/1384028.svg?token=exp=1617878169~hmac=578cd5f6b09851901ef0b9801e04b2f7" />
+                                <FaFacebook className="followUsIcon" />
+                                <FaInstagram className="followUsIcon" />
+                                <FaTwitter className="followUsIcon" />
+                                <FaSnapchat className="followUsIcon" />
                             </div>
                         </div>
                     </div>

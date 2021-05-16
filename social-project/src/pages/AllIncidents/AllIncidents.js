@@ -94,13 +94,12 @@ class AllIncidents extends Component {
                 <NavigationBar />
                 <div className="searchIncidentWrapper" >
                     <div className="addIncident" >
-                        {/* <span className="start" >Start</span> */}
                         <a href="/add-incident" className="start">
                             Start
                         </a>
                         <span>Add</span>
                         <span>new</span>
-                        <span className="incident" >incident</span>
+                        <span className="incident">incident</span>
                         <span>now!</span>
                     </div>
                     <p className="searchText" >Search reported incidents using the filters below.</p>

@@ -11,6 +11,7 @@ import LogIn from './pages/LogIn/LogIn.js';
 import AddIncident from './pages/AddIncident/AddIncident.js';
 import IncidentPage from './pages/IncidentPage/IncidentPage.js';
 import PersonalCabUser from './pages/PersonalCabUser/PersonalCabUser.js';
+import MyProfile from './pages/MyProfile/MyProfile.js';
 
 class App extends Component {
 
@@ -45,8 +46,13 @@ class App extends Component {
                 <Route 
                   path="/user-personal-cabinet"
                   exact
-                  // component={PersonalCabUser}
-                  render={(props) => <PersonalCabUser {...props}/>} />
+                  component={PersonalCabUser} />
+                  {/* // render={(props) => <PersonalCabUser {...props}/>}  */}
+                <Route 
+                  path="/my-profile"
+                  exact
+                  component={MyProfile} />
+                  {/* render={(props) => <PersonalCabUser {...props}/>} /> */}
         </div>
       </Router>
     );

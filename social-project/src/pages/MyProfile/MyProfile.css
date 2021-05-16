@@ -1,0 +1,76 @@
+.editBioArea {
+    height: 90px;
+    margin-top: 17px;
+    padding: 4px;
+    font-family:monospace;
+    font-size: 12px;
+}
+
+.bioButtons {
+    display: flex;
+    margin-top: 10px;
+}
+
+.bioCancelButton {
+    padding: 7px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: gray;
+    background-color: white;
+    margin-right: 13px;
+}
+
+.bioSaveButton:active {
+    background-color: #2949b1;
+}
+
+.bioCancelButton:active {
+    background-color: rgb(236, 232, 232);
+}
+
+.bioSaveButton {
+    padding: 7px;
+    border: 1px solid #2f55d4;
+    background-color: #2f55d4;
+    border-radius: 5px;
+    color: white;
+    margin-right: 13px;
+}
+
+.column1myprofile {
+    padding-top: 5px;
+}
+
+/* OPTIONS */
+
+.optionsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+
+.userOption {
+    width: 45%;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    border: 1px solid rgb(179, 178, 178);
+    border-radius: 7px;
+    font-size: 14px;
+    color: grey;
+}
+
+.profileOption, .userOption:hover {
+    background-color: #2f55d4;
+    color: white;
+    font-weight: 500;
+    border: 1px solid #2f55d4;
+    cursor: pointer;
+}
+
+.userOption p {
+    margin: 0px;
+}

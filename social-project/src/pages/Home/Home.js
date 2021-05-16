@@ -48,19 +48,18 @@ class Home extends Component {
         this.setState({
           [name]: value
         });
-      
         if (name === "username") {
             const regex0 = new RegExp('[a-zA-Z0-9]+');
             this.setState({
                 usernameValidation: regex0.test(value)
             });
         } else if (name === "email") {
-            const regex1 = new RegExp('(\w\.?)+@[\w\.-]+\.\w{2,4}');
+            const regex1 = new RegExp('[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}');
             this.setState({
                 emailValidation: regex1.test(value)
             });
         } else if (name === "idnp") {
-            const regex2 = new RegExp('(^\d{13}$)');
+            const regex2 = new RegExp('\\d{13,14}');
             this.setState({
                 idnpValidation: regex2.test(value)
             });
@@ -203,7 +202,7 @@ class Home extends Component {
 
         if (document.getElementById('confirmPasswordId') === document.activeElement) {
             confirmPasswordReq = (
-                <p className="inputStatus red"> Must be the same password. </p>
+                <p className="inputStatus red"> Must be the same correct password. </p>
             ) ;
             if (this.state.confirmPasswordValidation) {
                 confirmPasswordReq = (

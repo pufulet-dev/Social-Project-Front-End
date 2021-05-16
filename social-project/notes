@@ -1,0 +1,5 @@
+07.05.21
+
+- implemented global store [request link stored in variable, global variables - mandatory for upcoming requests]
+- integrated RegExp [some issues on Username, IDNP, email fields]
+- fixed followUsSection Bug
