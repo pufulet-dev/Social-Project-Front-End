@@ -1,0 +1,67 @@
+.relatedPostWrapper {
+    display: inline-block;
+    vertical-align: text-top;
+    width: 40%;
+    margin-right: 3%;
+    margin-left: 3%;
+    padding: 10px;
+    padding-top: 18px;
+    border: 1px solid rgb(216, 216, 216);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.relatedPostWrapper:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.relatedPostWrapper:hover::after {
+    opacity: 1;
+}
+
+.relatedPostImage {
+    height: 190px;
+    width: 290px;
+    object-fit: cover;
+}
+
+.relatedPostName {
+    font-size: 17px;
+    text-align: left;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-left: 5%;
+    margin-bottom: 0px;
+}
+
+.readMoreWrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.readMoreIcon {
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+}
+
+.readMoreText {
+    font-size: 14px;
+    color: rgb(87, 85, 85);
+}
+
+/* EXTRA */
+
+.styleForPersonalCab {
+    width: 50%;
+    margin-left: 0;
+    margin-right: 18px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 12px;
+    padding-bottom: 6px;
+    /* background-color: red; */
+}
